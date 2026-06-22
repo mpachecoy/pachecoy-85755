@@ -3,7 +3,7 @@ import authMiddleware from "../middlewares/authMiddleware.js";
 
 const router = Router();
 
-router.get("/session", authMiddleware, (req, res) => {
+router.get("/", authMiddleware, (req, res) => {
     res.status(200).json({
         status: "success", session: {
             id: req.sessionID,

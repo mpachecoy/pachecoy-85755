@@ -17,7 +17,6 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -43,7 +42,7 @@ app.use(passport.session());
 app.use("/api/products", productsRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/profile", profileRouter);
-app.use("/api/", sessionRouter);
+app.use("/api/session", sessionRouter);
 
 // MongoDB connection
 connectDB()
